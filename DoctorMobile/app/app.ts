@@ -6,6 +6,7 @@ import {ServerComponent} from "./providers/server";
 import {EatService} from "./providers/eatservice";
 import {HomePage} from "./pages/home/home";
 
+declare var cordova;
 
 @Component({
   providers: [FoodService, ServerComponent, EatService],
@@ -22,6 +23,21 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+
+
+      let tapEnabled = false;
+      let dragEnabled = false;
+      let toBack = true;
+      let rect = {
+        x: 0,
+        y: 0,
+        width: platform.width(),
+        height: platform.height()
+      };
+
+      cordova.plugins.camerapreview.startCamera(rect, "rear", tapEnabled, dragEnabled, toBack);
+
+
     });
   }
 }
