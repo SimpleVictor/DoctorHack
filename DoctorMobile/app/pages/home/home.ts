@@ -7,8 +7,10 @@ import {DeviceOrientation} from "ionic-native/dist/index";
 })
 export class HomePage {
   constructor(public navCtrl: NavController, private platform: Platform) {
-    platform.ready().then(() => {
+    // platform.ready().then(() => {
 
+
+    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
       DeviceOrientation.getCurrentHeading().then(
         data => console.log(data),
@@ -32,7 +34,7 @@ export class HomePage {
       );
 
 
-    })
+    // })
   }
 
   refresh(){
