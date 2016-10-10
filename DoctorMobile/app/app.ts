@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
 import { Platform, ionicBootstrap } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-import {FoodService} from "./providers/foodservice";
-import {ServerComponent} from "./providers/server";
-import {EatService} from "./providers/eatservice";
 import {HomePage} from "./pages/home/home";
 
 declare var cordova;
 
 @Component({
-  providers: [FoodService, ServerComponent, EatService],
   template: '<ion-nav [root]="rootPage"></ion-nav>'
 })
 export class MyApp {
 
   public rootPage: any;
 
-  constructor(private platform: Platform, public foodservice: FoodService) {
+  constructor(private platform: Platform) {
     this.rootPage = HomePage;
 
     platform.ready().then(() => {

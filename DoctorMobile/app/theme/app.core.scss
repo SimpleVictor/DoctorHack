@@ -16,43 +16,48 @@
 
 
 
+html, body, ion-content, ion-page, .nav-decor {
+  background-color: transparent !important;
+}
+
+
 *{
 }
 
 
-.tab-button-icon{
-  color: #FFF;
-}
-
-.tab-button-text{
-  color: #fff;
-}
-
-ion-tabbar{
-  background-color: #B00808;
-}
-
-ion-content{
-  background-color: #E9EBEE;
-}
-
-.toolbar-background{
-  backgrond-color: #B00808;
-}
-
-
-ion-header, .toolbar:first-child, .toolbar-background{
-  background-color: #B00808;
-  color: white !important;
-}
-
-.toolbar-title{
-  color: #fff;
-  letter-spacing: 5px;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-span.button-inner{
-  color: #fff;
-}
+//.tab-button-icon{
+//  color: #FFF;
+//}
+//
+//.tab-button-text{
+//  color: #fff;
+//}
+//
+//ion-tabbar{
+//  background-color: #B00808;
+//}
+//
+//ion-content{
+//  background-color: #E9EBEE;
+//}
+//
+//.toolbar-background{
+//  backgrond-color: #B00808;
+//}
+//
+//
+//ion-header, .toolbar:first-child, .toolbar-background{
+//  background-color: #B00808;
+//  color: white !important;
+//}
+//
+//.toolbar-title{
+//  color: #fff;
+//  letter-spacing: 5px;
+//  font-size: 20px;
+//  font-weight: 900;
+//}
+//
+//span.button-inner{
+//  color: #fff;
+//}
