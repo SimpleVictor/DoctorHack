@@ -41,4 +41,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="com.mbppower.camerapreview" spec="~0.0.8" />
+    <plugin name="cordova-plugin-device-orientation" spec="~1.0.4" />
 </widget>

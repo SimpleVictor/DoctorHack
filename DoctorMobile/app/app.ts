@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform, ionicBootstrap } from 'ionic-angular';
-import { StatusBar } from 'ionic-native';
+import {StatusBar, DeviceOrientation} from 'ionic-native';
 import {HomePage} from "./pages/home/home";
 
 declare var cordova;
@@ -21,6 +21,9 @@ export class MyApp {
       StatusBar.styleDefault();
 
 
+
+
+
       let tapEnabled = false;
       let dragEnabled = false;
       let toBack = true;
@@ -34,8 +37,23 @@ export class MyApp {
       cordova.plugins.camerapreview.startCamera(rect, "rear", tapEnabled, dragEnabled, toBack);
 
 
+      DeviceOrientation.
+
+      DeviceOrientation.getCurrentHeading().then(
+        data => console.log(data),
+        error => console.log(error)
+      );
+
+// Watch the device compass heading change
+
+      var subscription = DeviceOrientation.watchHeading()
+
+
+
     });
   }
+
+
 }
 
 ionicBootstrap(MyApp);
