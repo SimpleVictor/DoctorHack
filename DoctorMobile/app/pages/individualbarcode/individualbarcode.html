@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popModal()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="singleData">
+
+    <ion-card>
+      <ion-card-content style="padding: 0" text-center>
+          <ion-card-title style="font-weight: bolder">{{singleData.name}}</ion-card-title>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="singleData">
+      <img src="https://{{singleData.qr_pic}}"/>
+    </ion-card>
+
+    <ion-card>
+      <ion-list-header text-center>Orders</ion-list-header>
+      <ion-list *ngFor="let i of singleData.food">
+        <ion-item>{{i.name}} {{i.amount}} {{i.price}}</ion-item>
+      </ion-list>
+    </ion-card>
+
+  </div>
+
+</ion-content>
