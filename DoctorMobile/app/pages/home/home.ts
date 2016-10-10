@@ -12,35 +12,46 @@ export class HomePage {
 
     console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
-      DeviceOrientation.getCurrentHeading().then(
-        data => console.log(data),
-        error => console.log(error)
-      );
 
-      let options = {
-        frequency: 3000
-      }; // Update every 3 seconds
 
-      var watchID = DeviceOrientation.watchHeading(options).subscribe(
-        (data) => {
-          this.onSuccess(data);
-          console.log("Finsihed Watching");
-          console.log(data);
 
-        }, (err) => {
-          console.log("ERROR watching");
-          console.log(err);
-        }
-      );
 
 
     // })
   }
 
   refresh(){
+    console.log("bang");
     window['location'].reload();
   }
 
+  startCompass(){
+    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+
+    let options = {
+      frequency: 3000
+    }; // Update every 3 seconds
+    var watchID = DeviceOrientation.watchHeading(options).subscribe(
+      (data) => {
+        console.log("Finsihed Watching");
+        console.log(data);
+        this.onSuccess(data);
+
+      }, (err) => {
+        console.log("ERROR watching");
+        console.log(err);
+      }
+    );
+  }
+
+  devicerdy(){
+    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+    DeviceOrientation.getCurrentHeading().then(
+      (data) => console.log(data),
+      (err) => console.log(err)
+    );
+
+  }
 
   onSuccess(heading){
     var element = document.getElementById('heading');
