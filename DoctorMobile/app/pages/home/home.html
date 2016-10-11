@@ -1,13 +1,15 @@
 
 <ion-content class="home">
 
-  <!--<h1 style="color: white; background:transparent" id="heading"></h1>-->
+  <h1 style="color: white; background:transparent" id="heading"></h1>
   <!--<h1 style="color: white; background:transparent">YOOOOOOOOOOOOOOooo</h1>-->
 
-  <button light fab small fab-right fab-top (click)="startCompass()"><ion-icon name="switch"></ion-icon></button>
+  <button tappable light fab small fab-right fab-top (click)="startCompass()"><ion-icon name="switch"></ion-icon></button>
 
-  <button light fab small fab-left fab-bottom (click)="devicerdy()"><ion-icon name="exit"></ion-icon></button>
+  <button tappable light fab small fab-right fab-center id="spinMe" (click)="Spinme()" style="background-color: cadetblue"><ion-icon name="md-arrow-round-up"></ion-icon></button>
 
-  <button (click)="refresh()" light fab small fab-right fab-bottom><ion-icon name="archive"></ion-icon></button>
+  <button tappable light fab small fab-left fab-bottom (click)="devicerdy()"><ion-icon name="exit"></ion-icon></button>
+
+  <button tappable (click)="refresh()" light fab small fab-right fab-bottom><ion-icon name="archive"></ion-icon></button>
 
 </ion-content>

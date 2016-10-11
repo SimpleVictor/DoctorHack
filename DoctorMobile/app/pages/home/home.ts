@@ -1,23 +1,29 @@
 import { Component } from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
-import {DeviceOrientation} from "ionic-native/dist/index";
+import {DeviceOrientation} from "ionic-native";
+
+declare var navigator;
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
 })
 export class HomePage {
   constructor(public navCtrl: NavController, private platform: Platform) {
-    // platform.ready().then(() => {
 
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      console.log(navigator);
+      console.log("Device is rdy");
+    }
 
-    console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+  }
 
-
-
-
-
-
-    // })
+  Spinme(){
+    var element = document.getElementById('spinMe');
+    let randomNum = Math.round(Math.random()*359);
+    console.log(randomNum);
+    element.style.webkitTransform = `rotate(${randomNum}deg)`;
+    element.style.transform = `rotate(${randomNum}deg)`;
   }
 
   refresh(){
@@ -29,19 +35,9 @@ export class HomePage {
     console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 
     let options = {
-      frequency: 3000
+      frequency: 300
     }; // Update every 3 seconds
-    var watchID = DeviceOrientation.watchHeading(options).subscribe(
-      (data) => {
-        console.log("Finsihed Watching");
-        console.log(data);
-        this.onSuccess(data);
-
-      }, (err) => {
-        console.log("ERROR watching");
-        console.log(err);
-      }
-    );
+    var watchID = navigator.compass.watchHeading(this.onSuccess,this.onError, options);
   }
 
   devicerdy(){
@@ -55,7 +51,10 @@ export class HomePage {
 
   onSuccess(heading){
     var element = document.getElementById('heading');
-    element.innerHTML = 'Heading: ' + heading.magneticHeading;
+    element.innerHTML = 'Heading: ' + Math.round(heading.magneticHeading)+ ' degrees';
+    var element = document.getElementById('spinMe');
+    element.style.webkitTransform = `rotate(${heading.magneticHeading}deg)`;
+    element.style.transform = `rotate(${heading.magneticHeading}deg)`;
   }
 
   onError(compassError){
